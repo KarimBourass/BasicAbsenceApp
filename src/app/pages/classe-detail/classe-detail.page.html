@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align:center">Detail Classe </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    <form [formGroup]="editForm" (ngSubmit)="saveForm()">
+      <!-- Ajouter un Etudiant -->
+      <ion-item>
+        <ion-input formControlName="nom_etudiant" type="text" required placeholder="Nom de l'Etudiant"></ion-input>
+        <ion-icon size="small" type="submit" color="tertiary" name="add-circle" style="zoom:2.0"></ion-icon>
+
+      </ion-item>
+
+
+      <ion-list >
+        <h2 style="text-align:center">Les Etudiants</h2>
+    
+          <ion-item lines="inset" *ngFor="let etd of Data">
+            <ion-label [routerLink]="['/etudiant-detail/',etd.id]">
+              <p>{{etd.nom_etudiant}}</p>
+            </ion-label>
+    
+            <div class="item-note" item-end>
+              <!-- <ion-icon name="create" style="zoom:2.0" [routerLink]="['/song/', etd.id]"></ion-icon>          -->
+            
+                <ion-toggle slot="start" name="blueberry" checked color="tertiary"></ion-toggle>
+              
+              <ion-icon name="trash" color="danger" style="zoom:2.0" (click)="deleteEtudiant(etd.id,classe_id)"></ion-icon>
+            </div>
+          </ion-item>
+          
+    
+    
+      </ion-list>
+    
+   
+    
+      
+    </form>
+  </ion-list>
+</ion-content>
+
+    <ion-footer style="text-align:center">
+      <ion-toolbar>
+
+        <ion-button color="tertiary" shape="full" expand="block">
+          Enregister l'absence
+        </ion-button>
+
+
+      </ion-toolbar>
+    </ion-footer>

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="text-align:center">Ajouter une classe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    <form [formGroup]="mainForm" (ngSubmit)="storeData()">
+      <ion-item>
+        <ion-label position="floating" >Nom de la classe</ion-label>
+        <ion-input formControlName="classe" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="tertiary" shape="full" expand="block" [routerLink]="['/home']">
+            Ajouter
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+</ion-content>

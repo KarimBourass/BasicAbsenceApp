@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="text-align:center">Gestion d'Absence</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+
+  <div *ngIf="Data">
+    <ion-list>
+    
+      <h5 style="text-align:center">Les Classes</h5>
+
+   
+      <ion-item lines="inset" *ngFor="let data of Data">
+        <ion-label [routerLink]="['/classe-detail/',data.id]">
+          <h1>{{data.nom_classe}}</h1>
+        </ion-label>
+
+        <div class="item-note" item-end>
+          <ion-icon name="create" color="tertiary" style="zoom:2.0" [routerLink]="['/classe-detail/', data.id]"></ion-icon>        
+          <ion-icon name="trash" color="danger" style="zoom:2.0" (click)="deleteClasse(data.id)"></ion-icon>
+        </div>
+      </ion-item>
+      
+  </ion-list>
+</div>  
+
+  
+
+</ion-content>
+
+<ion-footer style="text-align:center">
+  <ion-toolbar>
+
+   <ion-icon color="tertiary" name="add-circle" style="zoom:2.0" [routerLink]="['/ajouter-classe']"></ion-icon>
+
+  </ion-toolbar>
+
+</ion-footer>
